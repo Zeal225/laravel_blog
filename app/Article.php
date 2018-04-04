@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['titre', 'contenu', 'user_id'];
+    protected $fillable = ['titre', 'contenu', 'vote', 'user_id'];
     public function user()
     {
         return $this->belongsTo('App\User');

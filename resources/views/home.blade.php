@@ -37,6 +37,12 @@
                                                 {!! link_to('articles/tag/'.$value->tag_url, $value->tag, ['class'=>'badge badge-dark badge-pill']) !!}
                                                 @endforeach
                                         </div>
+                                        <div style="padding: 0.6rem 0;" class="vote">
+                                            <button data-route="{{ route('like') }}" data-token="{{ Session::token() }}" data-postId="{!! $article->id !!}" type="button" class="js-like btn btn-primary">
+                                                Likes <span class="count badge badge-light">{!! $article->vote !!}</span>
+                                                <span class="sr-only">unread messages</span>
+                                            </button>
+                                        </div>
                                         <p style="margin: 0.6rem">write by: {!! link_to('user/'.$article->user->id, $article->user->name) !!}</p>
                                         @auth
                                             @if(\Illuminate\Support\Facades\Auth::user()->admin && \Illuminate\Support\Facades\Auth::user()->id === $article->user_id)
@@ -60,3 +66,4 @@
     </div>
 </div>
 @endsection
+

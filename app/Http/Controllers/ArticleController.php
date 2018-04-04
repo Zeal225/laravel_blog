@@ -142,4 +142,14 @@ class ArticleController extends Controller
         $link = $userArticles->render();
         return view('profile', compact('user', 'numberArticle', 'userArticles', 'link'));
     }
+    public function LikeController(Request $request)
+    {
+       $postId = $request['postId'];
+       $article = $this->articleRepository->getByID($postId);
+       $likeNumber = (int) $article->vote;
+//        $likeNumber = (int) $request['likeNumber'];
+        $this->articleRepository->getByID($postId)->update(['vote'=>$likeNumber+1]);
+        $newVote = $this->articleRepository->getByID($postId);
+        return response()->json(['like'=>(int) $newVote->vote], 200);
+    }
 }

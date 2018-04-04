@@ -15,6 +15,9 @@
                                     @else
                                     {{--sinon on veut créer un article--}}
                                     {!! Form::open(['route' => 'articles.store']) !!}
+                                    <div class="vote">
+                                        {!! Form::hidden('vote', 0) !!}
+                                    </div>
                                     @endif
                                 <div class="form-group">
                                     {!! Form::text('titre', null, ['class'=>'form-control', 'placeholder'=>'Entrer le titre de l\'article']) !!}

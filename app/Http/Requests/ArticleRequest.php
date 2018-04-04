@@ -25,7 +25,8 @@ class ArticleRequest extends FormRequest
     {
         return [
             'titre'=>'required|max:100',
-            'contenu'=>'required'
+            'contenu'=>'required',
+            'vote'=>'required|max:0'
         ];
     }
 }

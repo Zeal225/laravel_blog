@@ -36,3 +36,4 @@ Route::resource('commentaire', 'CommentaireController');
 Route::resource('reponse', 'ReponseController');
 Route::resource('auteur', 'UserController');
 Route::post('/photo', 'UserController@updatePhoto')->name('auteur.photo');
+Route::post('/like', 'ArticleController@LikeController')->name('like');
