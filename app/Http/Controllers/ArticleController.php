@@ -156,7 +156,7 @@ class ArticleController extends Controller
         $tag_url = $request['tagName'];
         $articles = $this->articleRepository->getArticleOfTags($tag_url);
         $links = $articles->render();
-        $view = view('home', compact('articles','links'))->render();
+        $view = view('ajaxArticleListe', compact('articles','links'))->render();
 //        $resultat = array();
 //        foreach ($articles as $article){
 //            $resultat[] = $article;
